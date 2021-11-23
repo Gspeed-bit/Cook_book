@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react"
+import React, {useState} from "react"
 import { Categories } from "./components/Categories";
 import list from "./components/data";
 import { Dishes } from "./components/Dishes";
@@ -18,7 +18,7 @@ const filterItems =(category)=>{
   //this returns a new array after serching though the categories
   const newItems = list.filter((item)=> item.category === category);
   setDishes(newItems)
-  console.log(newItems)
+ 
 }
 
     return (
