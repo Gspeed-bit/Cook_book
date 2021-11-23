@@ -4,17 +4,32 @@ import list from "./components/data";
 import { Dishes } from "./components/Dishes";
 
 function App() {
+const allCategories = ["all", ...new Set(list.map((item)=>item.category))]
   
   const [dishes, setDishes] = useState(list)
-  const [categorize, setCategorize ] = useState("")
+  const [categorize, setCategorize ] = useState(allCategories)
+  
+
+const filterItems =(category)=>{
+
+  if (category === "all"){
+  return setDishes(list)
+  }
+  //this returns a new array after serching though the categories
+  const newItems = list.filter((item)=> item.category === category);
+  setDishes(newItems)
+  console.log(newItems)
+}
+
     return (
      <main>
        <section className="menu section">
-          <div className="wrapper">
-            <h1 className="title"> our menu</h1>
-            <Categories />
-            <Dishes list={dishes}/> 
+          <div className="title">
+            <h2> our menu</h2>
+            <div className="underline"></div>
           </div>
+            <Categories categorize= {categorize} filterItems={filterItems} />
+            <Dishes list={dishes}/> 
        </section>
      </main>
     )
