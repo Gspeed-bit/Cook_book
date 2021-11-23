@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState} from "react"
+import { Categories } from "./components/Categories";
+import list from "./components/data";
+import { Dishes } from "./components/Dishes";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  
+  const [dishes, setDishes] = useState(list)
+  const [categorize, setCategorize ] = useState("")
+    return (
+     <main>
+       <section className="menu section">
+          <div className="wrapper">
+            <h1 className="title"> our menu</h1>
+            <Categories />
+            <Dishes list={dishes}/> 
+          </div>
+       </section>
+     </main>
+    )
+  }
 
 export default App;
