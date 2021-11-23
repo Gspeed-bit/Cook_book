@@ -7,7 +7,7 @@ function App() {
 const allCategories = ["all", ...new Set(list.map((item)=>item.category))]
   
   const [dishes, setDishes] = useState(list)
-  const [categorize, setCategorize ] = useState(allCategories)
+  const [categorize ] = useState(allCategories)
   
 
 const filterItems =(category)=>{
